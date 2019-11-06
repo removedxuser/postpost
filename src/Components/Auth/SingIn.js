@@ -28,9 +28,9 @@ class SingIn extends Component {
 			return <Redirect to="/" />;
 		}
 		return (
-			<div className="container">
+			<div className="container z-depth-5">
 				<form onSubmit={this.handleSubmit} className="white">
-					<h5 className="grey-text text-darken-3 center">Sign In</h5>
+					<h5 className="grey-text text-darken-3 center">Log In</h5>
 					<div className="input-field">
 						<label htmlFor="email">Email</label>
 						<input type="email" id="email" onChange={this.handleChange} />
@@ -39,7 +39,7 @@ class SingIn extends Component {
 						<label htmlFor="password">Password</label>
 						<input type="password" id="password" onChange={this.handleChange} />
 					</div>
-					<div className="input-field">
+					<div className="input-field center">
 						<button className="btn pink lighten-1 z-depth-0">Login</button>
 					</div>
 					<p className="center red-text">{this.props.error}</p>

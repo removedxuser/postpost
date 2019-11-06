@@ -35,7 +35,7 @@ class SignUp extends Component {
 			errMsg = this.props.error;
 		}
 		return (
-			<div className="container">
+			<div className="container z-depth-5">
 				<form onSubmit={this.handleSubmit} className="white">
 					<h5 className="grey-text text-darken-3 center">Sign Up</h5>
 					<div className="input-field">

@@ -3,20 +3,24 @@ import { Link } from 'react-router-dom';
 import SignedinLinks from './SignedinLinks';
 import SignedoutLinks from './SignedoutLinks';
 import { connect } from 'react-redux';
+import { useSpring, animated } from 'react-spring';
 
 const Navbar = (props) => {
+	const pros = useSpring({ opacity: 1, from: { opacity: 0 } });
 	return (
-		<div className="navbar-fixed" style={{ marginBottom: 30 }}>
-			<nav className="nav-wrapper blue darken-3">
-				<div className="container">
-					<Link to="/" className="brand-logo">
-						PostPostMAN
-					</Link>
-					{props.isAuth.isLoaded &&
-						(props.isAuth.uid ? <SignedinLinks initials={props.initials} /> : <SignedoutLinks />)}
-				</div>
-			</nav>
-		</div>
+		<animated.div style={pros}>
+			<div className="navbar-fixed" style={{ marginBottom: 30, fontFamily: 'Special Elite, cursive' }}>
+				<nav className="nav-wrapper">
+					<div className="container">
+						<Link to="/" className="brand-logo black-text">
+							PostPostMAN
+						</Link>
+						{props.isAuth.isLoaded &&
+							(props.isAuth.uid ? <SignedinLinks initials={props.initials} /> : <SignedoutLinks />)}
+					</div>
+				</nav>
+			</div>
+		</animated.div>
 	);
 };
 

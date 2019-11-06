@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
+import { useSpring, animated } from 'react-spring';
 
 class Dashboard extends Component {
 	render() {
@@ -39,6 +40,6 @@ export default compose(
 	connect(mapStateToProps),
 	firestoreConnect([
 		{ collection: 'projects', orderBy: [ 'createDate', 'desc' ] },
-		{ collection: 'notifications', limit: 3, orderBy: [ 'time', 'desc' ] }
+		{ collection: 'notifications', limit: 6, orderBy: [ 'time', 'desc' ] }
 	])
 )(Dashboard);

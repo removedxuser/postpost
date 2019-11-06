@@ -5,11 +5,13 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	padding: 0;
-	background: url(/img/back.jpg);
-	background-size: cover;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-position: center center;
+	background: #ff4b1f; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #e0e5e6, #ff4b1f); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#1fddff,
+		#ff4b1f
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 code {
@@ -18,9 +20,8 @@ code {
 
 form {
 	margin-top: 50px;
-	border-radius: 20px;
 	padding: 50px 100px 50px 100px;
-	box-shadow: 10px 10px lightblue;
+	font-family: 'Staatliches', cursive;
 }
 
 nav {
@@ -28,6 +29,13 @@ nav {
 }
 
 button {
-	border-radius: 20px !Important;
-	width: 150px;
+	border-radius: 20px !important;
+	width: 200px;
+	height: 50px !important;
+	font-family: 'Staatliches', cursive;
+}
+
+.card-panel {
+	width: 350px !important;
+	height: 350px !important;
 }
