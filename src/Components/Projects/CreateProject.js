@@ -23,7 +23,6 @@ class CreateProject extends Component {
 	};
 
 	render() {
-		console.log(this.props.isAuth);
 		if (!this.props.isAuth.isLoaded) {
 			return <Spinner />;
 		}
