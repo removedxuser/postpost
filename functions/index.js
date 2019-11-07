@@ -20,7 +20,7 @@ const createNotification = (notification) => {
 exports.projectCreated = functions.firestore.document('projects/{projectID}').onCreate((doc) => {
 	const project = doc.data();
 	const notification = {
-		content: 'Added A New Post!',
+		content: `Added A New Post! (${project.title})`,
 		user: `${project.authorFirstName} ${project.authorLastName}`,
 		time: admin.firestore.FieldValue.serverTimestamp()
 	};
@@ -28,15 +28,13 @@ exports.projectCreated = functions.firestore.document('projects/{projectID}').on
 	return createNotification(notification);
 });
 
-exports.userJoined = functions.auth.user().onCreate((user) => {
-	return admin.firestore().collection('users').doc(user.uid).get().then((doc) => {
-		const newUser = doc.data();
-		const notification = {
-			content: 'Joined The Party!',
-			user: `${newUser.firstName} ${newUser.lastName}`,
-			time: admin.firestore.FieldValue.serverTimestamp()
-		};
+exports.newUserJoined = functions.firestore.document('users/{userId}').onCreate((doc) => {
+	const newUser = doc.data();
+	const notification = {
+		content: 'Joined the party',
+		user: `${newUser.firstName} ${newUser.lastName}`,
+		time: admin.firestore.FieldValue.serverTimestamp()
+	};
 
-		return createNotification(notification);
-	});
+	return createNotification(notification);
 });

@@ -5,18 +5,20 @@ import { Link } from 'react-router-dom';
 const ProjectList = (props) => {
 	return (
 		<Fragment>
-			{props.posts &&
-				props.posts.map((item) => (
-					<Link to={'/project/' + item.id} key={item.id} {...props}>
-						<ProjectSummary
-							title={item.title}
-							content={item.content}
-							fName={item.authorFirstName}
-							lName={item.authorLastName}
-							createDate={item.createDate}
-						/>
-					</Link>
-				))}
+			<div className="col m4 s12">
+				{props.posts &&
+					props.posts.map((item) => (
+						<Link to={'/project/' + item.id} key={item.id} {...props}>
+							<ProjectSummary
+								title={item.title}
+								content={item.content}
+								fName={item.authorFirstName}
+								lName={item.authorLastName}
+								createDate={item.createDate}
+							/>
+						</Link>
+					))}
+			</div>
 		</Fragment>
 	);
 };
